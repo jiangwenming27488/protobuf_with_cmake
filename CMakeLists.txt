@@ -3,7 +3,6 @@ project(ProtoTest)
 
 set(CMAKE_CXX_STANDARD 14)
 
-find_package(Protobuf REQUIRED)
 file(GLOB proto_files "${PROJECT_SOURCE_DIR}/proto/*.proto")
 
 set(proto_gen_cpp_dir ${PROJECT_SOURCE_DIR}/proto)
@@ -37,5 +36,3 @@ add_custom_command(
 set_source_files_properties(${proto_gen_cpp_files} PROPERTIES GENERATED TRUE)
 
 add_executable(ProtoTest main.cpp ${proto_gen_cpp_files})
-
-target_link_libraries(ProtoTest ${PROTOBUF_LIBRARIES})
